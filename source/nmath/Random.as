@@ -7,6 +7,14 @@ package nmath {
 			throw new IllegalOperationError("Random is static!");
 		};
 		
+		public static function goldenRatio():Number {
+			var results:Number = Math.random();
+				results += 0.618033988749895;
+				results %= 1;
+			
+			return results;
+		};
+		
 		public static function range(pMin:Number, pMax:Number):Number {
 			return pMin + (Math.random() * (pMax - pMin)); 
 		};
@@ -17,10 +25,6 @@ package nmath {
 		
 		public static function variation(pValue:Number, pVariation:Number):Number {
 			return pValue + 2.0 * (Math.random() - 0.5) * pVariation;
-		};
-		
-		public static function get color():uint {
-			return Math.random() * 0xFFFFFF;
 		};
 		
 		public static function arrayElement(pContent:Array):* {
