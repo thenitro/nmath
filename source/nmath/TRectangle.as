@@ -37,7 +37,23 @@ package nmath {
 		public function get size():Vector2D {
 			return _size;
 		};
-		
+
+        public function get left():Number {
+            return _position.x;
+        };
+
+        public function get right():Number {
+            return _position.x + _size.x;
+        };
+
+        public function get top():Number {
+            return _position.y;
+        };
+
+        public function get bottom():Number {
+            return _position.y + _size.y;
+        };
+
 		public function isPointInside(pPosition:Vector2D):Boolean {
 			if (pPosition.x < _position.x || pPosition.y < _position.y ||
 				pPosition.x > _size.x || pPosition.y > _size.y) {
@@ -46,6 +62,11 @@ package nmath {
 			
 			return true;
 		};
+
+        public function zero():void {
+            _position.zero();
+            _size.zero();
+        };
 		
 		public function poolPrepare():void {
 			_position.zero();
