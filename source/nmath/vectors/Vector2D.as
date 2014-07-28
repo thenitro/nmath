@@ -7,7 +7,9 @@ package nmath.vectors {
 	
 	public final class Vector2D implements IReusable {
 		private static var _pool:Pool = Pool.getInstance();
-		
+
+        private var _disposed:Boolean;
+
 		private var _x:Number;
 		private var _y:Number;
 		
@@ -51,6 +53,10 @@ package nmath.vectors {
 		public function get reflection():Class {
 			return Vector2D;
 		};
+
+        public function get disposed():Boolean {
+            return _disposed;
+        };
 		
 		public function get depth():Number {
 			return _depth;
@@ -255,6 +261,8 @@ package nmath.vectors {
 		
 		public function dispose():void {
 			zero();
+
+            _disposed = true;
 		};
 		
 		public function toString():String {
