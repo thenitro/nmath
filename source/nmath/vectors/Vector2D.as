@@ -1,5 +1,7 @@
 package nmath.vectors {
-	import nmath.Random;
+    import flash.geom.Point;
+
+    import nmath.Random;
 	import nmath.TMath;
 	
 	import npooling.IReusable;
@@ -30,6 +32,15 @@ package nmath.vectors {
 			
 			return result;
 		};
+
+        public static function fromPoint(pTarget:Point):Vector2D {
+            var result:Vector2D = ZERO;
+
+                result.x = pTarget.x;
+                result.y = pTarget.y;
+
+            return result;
+        };
 		
 		public static function distanceSquared(pVectorA:Vector2D, pVectorB:Vector2D):Number {
 			var dx:Number = pVectorB.x - pVectorA.x;
