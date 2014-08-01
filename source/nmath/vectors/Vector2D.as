@@ -35,9 +35,7 @@ package nmath.vectors {
 
         public static function fromPoint(pTarget:Point):Vector2D {
             var result:Vector2D = ZERO;
-
-                result.x = pTarget.x;
-                result.y = pTarget.y;
+                result.fromPoint(pTarget);
 
             return result;
         };
@@ -100,6 +98,11 @@ package nmath.vectors {
 		public function lengthSquared():Number {
 			return (_x * _x) + (_y *_y);
 		};
+
+        public function fromPoint(pInput:Point):void {
+            x = pInput.x;
+            y = pInput.y;
+        };
 		
 		public function substract(pTarget:Vector2D, pClone:Boolean = false):Vector2D {
 			var result:Vector2D = pClone ? clone() : this;

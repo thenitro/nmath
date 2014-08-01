@@ -1,14 +1,16 @@
 package nmath {
-	import flash.display.DisplayObject;
 	import flash.errors.IllegalOperationError;
-	
-	public final class Geometry {
+
+    import starling.display.DisplayObject;
+
+    public final class Geometry {
 		public function Geometry() {
 			throw new IllegalOperationError("Geometry is static class!");
 		};
 		
 		public static function resizeDisplayObject(pTarget:DisplayObject,
-												   pWidth:Number, pHeight:Number, pDetermineFunction:Function):void {
+												   pWidth:Number, pHeight:Number,
+                                                   pDetermineFunction:Function):DisplayObject {
 			if (pWidth && pHeight) {
 				pTarget.scaleX = 1.0;
 				pTarget.scaleY = 1.0;
@@ -18,6 +20,8 @@ package nmath {
 				pTarget.scaleX = scale;
 				pTarget.scaleY = scale;
 			}
+
+            return pTarget;
 		};
 		
 		public static function determineMinScale(pSourceWidth:Number, pSourceHeight:Number, 
