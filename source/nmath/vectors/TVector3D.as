@@ -177,7 +177,11 @@ package nmath.vectors {
 		public function distanceTo(pTarget:TVector3D):Number {
 			return distance(this, pTarget);
 		};
-		
+
+        public function dotProduct(pTarget:TVector3D):Number {
+            return x * pTarget.x + y * pTarget.y + z * pTarget.z;
+        };
+
 		public function floor(pNewInstance:Boolean = false):TVector3D {
 			var result:TVector3D = pNewInstance ? clone() : this;
 			

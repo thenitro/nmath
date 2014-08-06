@@ -50,6 +50,10 @@ package nmath.vectors {
 		public static function distance(pVectorA:Vector2D, pVectorB:Vector2D):Number {
 			return Math.sqrt(distanceSquared(pVectorA, pVectorB));
 		};
+
+        public static function angleBetween(pVectorA:Vector2D, pVectorB:Vector2D):Number {
+            return Math.atan2(pVectorA.y - pVectorB.y, pVectorA.x - pVectorB.x);
+        };
 		
 		public static function equals(pVectorA:Vector2D, pVectorB:Vector2D):Boolean {
 			return pVectorA.x == pVectorB.x && pVectorA.y == pVectorB.y;
@@ -196,6 +200,10 @@ package nmath.vectors {
 		public function distanceTo(pTarget:Vector2D):Number {
 			return distance(this, pTarget);
 		};
+
+        public function angleTo(pTarget:Vector2D):Number {
+            return angleBetween(this, pTarget);
+        };
 		
 		public function dotProduct(pTarget:Vector2D):Number {
 			return x * pTarget.x + y * pTarget.y;
