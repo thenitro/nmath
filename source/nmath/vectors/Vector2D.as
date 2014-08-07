@@ -62,6 +62,15 @@ package nmath.vectors {
 		public static function direction(pVectorA:Vector2D, pVectorB:Vector2D):Number {
 			return Math.atan2(pVectorB.y - pVectorA.y, pVectorB.x - pVectorA.x);
 		};
+
+        public static function lerp(pA:Vector2D, pB:Vector2D, pTime:Number):Vector2D {
+            var result:Vector2D = Vector2D.ZERO;
+
+                result.x = (1.0 - pTime) * pA.x + pTime * pB.x;
+                result.y = (1.0 - pTime) * pA.y + pTime * pB.y;
+
+            return result;
+        };
 		
 		public function get reflection():Class {
 			return Vector2D;

@@ -65,6 +65,16 @@ package nmath.vectors {
 			
 			return dx * dx + dy * dy + dz * dz;
 		};
+
+        public static function lerp(pA:TVector3D, pB:TVector3D, pTime:Number):TVector3D {
+            var result:TVector3D = TVector3D.ZERO;
+            
+                result.x = (1.0 - pTime) * pA.x + pTime * pB.x;
+                result.y = (1.0 - pTime) * pA.y + pTime * pB.y;
+                result.z = (1.0 - pTime) * pA.z + pTime * pB.z;
+
+            return result;
+        };
 		
 		public function get reflection():Class {
 			return TVector3D;
