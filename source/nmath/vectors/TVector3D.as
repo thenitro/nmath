@@ -68,7 +68,7 @@ package nmath.vectors {
 
         public static function lerp(pA:TVector3D, pB:TVector3D, pTime:Number):TVector3D {
             var result:TVector3D = TVector3D.ZERO;
-            
+
                 result.x = (1.0 - pTime) * pA.x + pTime * pB.x;
                 result.y = (1.0 - pTime) * pA.y + pTime * pB.y;
                 result.z = (1.0 - pTime) * pA.z + pTime * pB.z;
