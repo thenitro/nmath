@@ -1,8 +1,9 @@
 package nmath {
-	import flash.display.DisplayObject;
 	import flash.errors.IllegalOperationError;
-	
-	public final class Geometry {
+
+    import starling.display.DisplayObject;
+
+    public final class Geometry {
 		public function Geometry() {
 			throw new IllegalOperationError("Geometry is static class!");
 		};
