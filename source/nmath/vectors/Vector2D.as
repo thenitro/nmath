@@ -1,5 +1,7 @@
 package nmath.vectors {
-	import nmath.Random;
+    import flash.geom.Point;
+
+    import nmath.Random;
 	import nmath.TMath;
 	
 	import npooling.IReusable;
@@ -7,7 +9,9 @@ package nmath.vectors {
 	
 	public final class Vector2D implements IReusable {
 		private static var _pool:Pool = Pool.getInstance();
-		
+
+        private var _disposed:Boolean;
+
 		private var _x:Number;
 		private var _y:Number;
 		
@@ -28,6 +32,13 @@ package nmath.vectors {
 			
 			return result;
 		};
+
+        public static function fromPoint(pTarget:Point):Vector2D {
+            var result:Vector2D = ZERO;
+                result.fromPoint(pTarget);
+
+            return result;
+        };
 		
 		public static function distanceSquared(pVectorA:Vector2D, pVectorB:Vector2D):Number {
 			var dx:Number = pVectorB.x - pVectorA.x;
@@ -39,6 +50,10 @@ package nmath.vectors {
 		public static function distance(pVectorA:Vector2D, pVectorB:Vector2D):Number {
 			return Math.sqrt(distanceSquared(pVectorA, pVectorB));
 		};
+
+        public static function angleBetween(pVectorA:Vector2D, pVectorB:Vector2D):Number {
+            return Math.atan2(pVectorA.y - pVectorB.y, pVectorA.x - pVectorB.x);
+        };
 		
 		public static function equals(pVectorA:Vector2D, pVectorB:Vector2D):Boolean {
 			return pVectorA.x == pVectorB.x && pVectorA.y == pVectorB.y;
@@ -47,10 +62,23 @@ package nmath.vectors {
 		public static function direction(pVectorA:Vector2D, pVectorB:Vector2D):Number {
 			return Math.atan2(pVectorB.y - pVectorA.y, pVectorB.x - pVectorA.x);
 		};
+
+        public static function lerp(pA:Vector2D, pB:Vector2D, pTime:Number):Vector2D {
+            var result:Vector2D = Vector2D.ZERO;
+
+                result.x = (1.0 - pTime) * pA.x + pTime * pB.x;
+                result.y = (1.0 - pTime) * pA.y + pTime * pB.y;
+
+            return result;
+        };
 		
 		public function get reflection():Class {
 			return Vector2D;
 		};
+
+        public function get disposed():Boolean {
+            return _disposed;
+        };
 		
 		public function get depth():Number {
 			return _depth;
@@ -83,6 +111,11 @@ package nmath.vectors {
 		public function lengthSquared():Number {
 			return (_x * _x) + (_y *_y);
 		};
+
+        public function fromPoint(pInput:Point):void {
+            x = pInput.x;
+            y = pInput.y;
+        };
 		
 		public function substract(pTarget:Vector2D, pClone:Boolean = false):Vector2D {
 			var result:Vector2D = pClone ? clone() : this;
@@ -176,6 +209,10 @@ package nmath.vectors {
 		public function distanceTo(pTarget:Vector2D):Number {
 			return distance(this, pTarget);
 		};
+
+        public function angleTo(pTarget:Vector2D):Number {
+            return angleBetween(this, pTarget);
+        };
 		
 		public function dotProduct(pTarget:Vector2D):Number {
 			return x * pTarget.x + y * pTarget.y;
@@ -255,6 +292,8 @@ package nmath.vectors {
 		
 		public function dispose():void {
 			zero();
+
+            _disposed = true;
 		};
 		
 		public function toString():String {

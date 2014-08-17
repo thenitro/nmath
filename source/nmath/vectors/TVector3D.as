@@ -4,6 +4,8 @@ package nmath.vectors {
 	
 	public class TVector3D implements IReusable {
 		private static var _pool:Pool = Pool.getInstance();
+
+        private var _disposed:Boolean;
 		
 		private var _x:Number;
 		private var _y:Number;
@@ -63,10 +65,24 @@ package nmath.vectors {
 			
 			return dx * dx + dy * dy + dz * dz;
 		};
+
+        public static function lerp(pA:TVector3D, pB:TVector3D, pTime:Number):TVector3D {
+            var result:TVector3D = TVector3D.ZERO;
+
+                result.x = (1.0 - pTime) * pA.x + pTime * pB.x;
+                result.y = (1.0 - pTime) * pA.y + pTime * pB.y;
+                result.z = (1.0 - pTime) * pA.z + pTime * pB.z;
+
+            return result;
+        };
 		
 		public function get reflection():Class {
 			return TVector3D;
 		};
+
+        public function get disposed():Boolean {
+            return _disposed;
+        };
 		
 		public function length():Number {
 			return Math.sqrt(lengthSquared());
@@ -171,7 +187,11 @@ package nmath.vectors {
 		public function distanceTo(pTarget:TVector3D):Number {
 			return distance(this, pTarget);
 		};
-		
+
+        public function dotProduct(pTarget:TVector3D):Number {
+            return x * pTarget.x + y * pTarget.y + z * pTarget.z;
+        };
+
 		public function floor(pNewInstance:Boolean = false):TVector3D {
 			var result:TVector3D = pNewInstance ? clone() : this;
 			
@@ -224,6 +244,8 @@ package nmath.vectors {
 		
 		public function dispose():void {
 			zero();
+
+            _disposed = true;
 		};
 		
 		public function toString():String {

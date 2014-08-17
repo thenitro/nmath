@@ -6,6 +6,8 @@ package nmath {
 	
 	public final class TRectangle implements IReusable {
 		private static var _pool:Pool = Pool.getInstance();
+
+        private var _disposed:Boolean;
 		
 		private var _position:Vector2D;
 		private var _size:Vector2D;
@@ -29,6 +31,10 @@ package nmath {
 		public function get reflection():Class {
 			return TRectangle;
 		};
+
+        public function get disposed():Boolean {
+            return _disposed;
+        };
 		
 		public function get position():Vector2D {
 			return _position;
@@ -79,6 +85,8 @@ package nmath {
 			
 			_position = null;
 			_size     = null;
+
+            _disposed = true;
 		};
 	}
 }
