@@ -285,6 +285,11 @@ package nmath.vectors {
 				
 			return result;
 		};
+
+        public function copy(pSource:Vector2D):void {
+            _x = pSource.x;
+            _y = pSource.y;
+        };
 		
 		public function poolPrepare():void {
 			zero();
