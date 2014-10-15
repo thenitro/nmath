@@ -1,8 +1,11 @@
 package nmath {
-	import flash.errors.IllegalOperationError;
-	import flash.utils.Dictionary;
+    import flash.errors.IllegalOperationError;
+    import flash.utils.Dictionary;
 
-	public class GraphUtils {
+    import ncollections.grid.Grid;
+    import ncollections.grid.IGridObject;
+
+    public class GraphUtils {
 		private static const EMPTY_ARRAY:Array = [];
 		
 		public function GraphUtils() {
