@@ -66,8 +66,8 @@ package nmath.vectors {
         public static function lerp(pA:Vector2D, pB:Vector2D, pTime:Number):Vector2D {
             var result:Vector2D = Vector2D.ZERO;
 
-                result.x = (1.0 - pTime) * pA.x + pTime * pB.x;
-                result.y = (1.0 - pTime) * pA.y + pTime * pB.y;
+                result.x = TMath.lerp(pA.x, pB.x, pTime);
+                result.y = TMath.lerp(pA.y, pB.y, pTime);
 
             return result;
         };
@@ -196,10 +196,10 @@ package nmath.vectors {
 			_x *= -1;
 			_y *= -1;
 		};
-		
-		public function fromAngle(pValue:Number, pLength:Number = 1):void {
-			_x = Math.cos(pValue) * pLength;
-			_y = Math.sin(pValue) * pLength;
+
+		public function fromAngle(pAngleInRadians:Number, pLength:Number = 1):void {
+			_x = Math.cos(pAngleInRadians) * pLength;
+			_y = Math.sin(pAngleInRadians) * pLength;
 		};
 		
 		public function angle():Number {

@@ -70,8 +70,8 @@ package nmath {
 			return (pTargetMax - pTargetMin) / index; 
 		};
 		
-		public static function lerp(pA:Number, pB:Number, pT:Number):Number {
-			return pA + (pB - pA) * pT;
+		public static function lerp(pA:Number, pB:Number, pTime:Number):Number {
+			return pA + (pB - pA) * pTime;
 		};
 		
 		public static function valueInRange(pValue:Number, 
