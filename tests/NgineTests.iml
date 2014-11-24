@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="Flex" version="4">
+  <component name="FlexBuildConfigurationManager" active="NgineTests">
+    <configurations>
+      <configuration name="NgineTests" pure-as="true" main-class="NgineTests" output-file="NgineTests.swf" output-folder="$MODULE_DIR$/bin-debug">
+        <dependencies target-player="15.0">
+          <entries>
+            <entry library-id="2cad299a-281b-4527-a3f7-153be7d2a3fa">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="9c167d5f-a7b6-4aa7-8646-56b8e4af10b4">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="f0c431ba-aed3-4fc6-a0ed-5fd15a1d57f1">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="df042ff3-4db4-478f-a6f4-31b66d0f4fd9">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIR_SDK_15" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.locale" value="en_US" />
+          </map>
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+    </configurations>
+    <compiler-options />
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <content url="file://D:/ngine/source">
+      <sourceFolder url="file://D:/ngine/source" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="AIR_SDK_15" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="2cad299a-281b-4527-a3f7-153be7d2a3fa" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/Common" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/Common" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="9c167d5f-a7b6-4aa7-8646-56b8e4af10b4" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/ASProject" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/ASProject" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="f0c431ba-aed3-4fc6-a0ed-5fd15a1d57f1" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/ASProject_Extended" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$FLEXUNIT_LIB_LOCATION$/version4libs/ASProject_Extended" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="df042ff3-4db4-478f-a6f4-31b66d0f4fd9" />
+        <CLASSES>
+          <root url="file://$FLEXUNIT_LOCALE_LOCATION$/version4locale" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$FLEXUNIT_LOCALE_LOCATION$/version4locale/" recursive="false" />
+      </library>
+    </orderEntry>
+  </component>
+</module>
+
