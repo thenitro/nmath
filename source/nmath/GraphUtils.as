@@ -7,13 +7,14 @@ package nmath {
 
     public class GraphUtils {
 		private static const EMPTY_ARRAY:Array = [];
-		
+
 		public function GraphUtils() {
 			throw new IllegalOperationError('GraphUtils is static!');
 		};
 		
 		public static function bfs(pIndexX:uint, pIndexY:uint,
-								   pGrid:Grid, pAddHeighbors:Function):Array {
+								   pGrid:Grid, pAddHeighbors:Function,
+                                   pComparator:Function):Array {
 			var current:IGridObject;
 			var searched:IGridObject = pGrid.take(pIndexX, pIndexY) as IGridObject;
 			
@@ -24,8 +25,9 @@ package nmath {
 			var neighbors:Array = [];
 			
 			var seen:Dictionary = new Dictionary();
-			var selected:Array = EMPTY_ARRAY.concat();
-			var queue:Array    = EMPTY_ARRAY.concat();
+
+			var selected:Array = [];
+			var queue:Array    = [];
 				queue.push(searched);
 			
 			while (queue.length) {
@@ -48,7 +50,7 @@ package nmath {
 					
 					seen[neighbor] = true;
 					
-					if (neighbor.reflection == searched.reflection) {
+					if (pComparator(neighbor, searched)) {
 						selected.push(neighbor);
 						queue.push(neighbor);
 					} else {
@@ -80,5 +82,10 @@ package nmath {
 			addNeighborsVertical(pGrid, pIndexX, pIndexY, pContainer);
 			addNeighborsHorizontal(pGrid, pIndexX, pIndexY, pContainer);
 		};
+
+        public static function reflectionComparator(pNeighbor:IGridObject,
+                                                    pSearched:IGridObject):Boolean {
+            return pNeighbor.reflection == pSearched.reflection;
+        };
 	};
 }
