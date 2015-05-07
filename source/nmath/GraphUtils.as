@@ -2,11 +2,19 @@ package nmath {
     import flash.errors.IllegalOperationError;
     import flash.utils.Dictionary;
 
-    import ncollections.grid.Grid;
+	import ncollections.TDictionary;
+
+	import ncollections.grid.Grid;
     import ncollections.grid.IGridObject;
 
     public class GraphUtils {
 		private static const EMPTY_ARRAY:Array = [];
+
+		private static var _seen:TDictionary = TDictionary.EMPTY;
+
+		private static var _neighbors:Array = [];
+		private static var _selected:Array  = [];
+		private static var _queue:Array     = [];
 
 		public function GraphUtils() {
 			throw new IllegalOperationError('GraphUtils is static!');
@@ -22,46 +30,47 @@ package nmath {
 				return EMPTY_ARRAY;
 			}
 			
-			var neighbors:Array = [];
-			
-			var seen:Dictionary = new Dictionary();
+			_neighbors.length = 0;
 
-			var selected:Array = [];
-			var queue:Array    = [];
-				queue.push(searched);
+			_seen.clean();
+
+			_selected.length = 0;
+
+			_queue.length    = 0;
+			_queue.push(searched);
 			
-			while (queue.length) {
-				current = queue.shift();
+			while (_queue.length) {
+				current = _queue.shift();
 				
 				if (!current) {
 					continue;
 				}
 				
-				pAddHeighbors(pGrid, current.indexX, current.indexY, neighbors);
+				pAddHeighbors(pGrid, current.indexX, current.indexY, _neighbors);
 				
-				for each (var neighbor:IGridObject in neighbors) {
+				for each (var neighbor:IGridObject in _neighbors) {
 					if (!neighbor) {
 						continue;
 					}
 					
-					if (seen[neighbor]) {
+					if (_seen.contains(neighbor)) {
 						continue;
 					}
 					
-					seen[neighbor] = true;
+					_seen.add(neighbor, true);
 					
 					if (pComparator(neighbor, searched)) {
-						selected.push(neighbor);
-						queue.push(neighbor);
+						_selected.push(neighbor);
+						_queue.push(neighbor);
 					} else {
 						continue;
 					}	
 				}
 				
-				neighbors.length = 0;
+				_neighbors.length = 0;
 			}
 			
-			return selected;
+			return _selected.concat();
 		};
 		
 		public static function addNeighborsHorizontal(pGrid:Grid, 
