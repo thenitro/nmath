@@ -27,8 +27,12 @@ package nmath {
             return pValue + 2.0 * (Math.random() - 0.5) * pVariation;
         };
 
+        public static function randomIndex(pContent:Object):int {
+            return Math.round(Math.random() * (pContent.length - 1));
+        };
+
         public static function arrayElement(pContent:Object):Object {
-            return pContent[Math.round(Math.random() * (pContent.length - 1))];
+            return pContent[randomIndex(pContent)];
         };
     }
 }
