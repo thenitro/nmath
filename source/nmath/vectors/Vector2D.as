@@ -2,7 +2,7 @@ package nmath.vectors {
     import flash.geom.Point;
 
     import nmath.Random;
-	import nmath.TMath;
+	import nmath.NMath;
 	
 	import npooling.IReusable;
 	import npooling.Pool;
@@ -66,8 +66,8 @@ package nmath.vectors {
         public static function lerp(pA:Vector2D, pB:Vector2D, pTime:Number):Vector2D {
             var result:Vector2D = Vector2D.ZERO;
 
-                result.x = TMath.lerp(pA.x, pB.x, pTime);
-                result.y = TMath.lerp(pA.y, pB.y, pTime);
+                result.x = NMath.lerp(pA.x, pB.x, pTime);
+                result.y = NMath.lerp(pA.y, pB.y, pTime);
 
             return result;
         };
@@ -262,7 +262,7 @@ package nmath.vectors {
 							  pClone:Boolean = false):Vector2D {
 			var result:Vector2D = pClone ? clone() : this;
 				result.fromAngle(result.angle(), 
-								 TMath.clamp(result.length(), pMinValue, 
+								 NMath.clamp(result.length(), pMinValue,
 															  pMaxValue));
 			
 			return result;

@@ -1,9 +1,9 @@
 package nmath {
 	import flash.errors.IllegalOperationError;
 
-	public final class TMath {
+	public final class NMath {
 		
-		public function TMath() {
+		public function NMath() {
 			throw new IllegalOperationError("Math is static!");
 		};
 		

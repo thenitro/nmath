@@ -52,11 +52,11 @@ package nmath {
 			for (var i:int = 0; i < 100; i++) {
 				var a:int = (Math.random() % (pValue - 2)) + 2;
 				
-				if (TMath.gcd(a, pValue) != 1) {
+				if (NMath.gcd(a, pValue) != 1) {
 					return false;
 				}
 				
-				if (TMath.pows(a, pValue - 1, pValue) != 1) { 
+				if (NMath.pows(a, pValue - 1, pValue) != 1) {
 					return false;
 				}
 			}
