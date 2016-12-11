@@ -15,9 +15,15 @@ package nmath {
             return results;
         };
 
+        [Inline]
         public static function range(pMin:Number, pMax:Number):Number {
             return pMin + (Math.random() * (pMax - pMin));
-        };
+        }
+
+        [Inline]
+        public static function vectorRange(pVector:Object):Number {
+            return range(pVector[0], pVector[1]);
+        }
 
         public static function probability(pPercents:Number):Boolean {
             return range(0, 100) < pPercents;
