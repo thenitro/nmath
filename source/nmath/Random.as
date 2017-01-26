@@ -29,6 +29,7 @@ package nmath {
             return range(0, 100) < pPercents;
         };
 
+        [Inline]
         public static function variation(pValue:Number, pVariation:Number):Number {
             return pValue + 2.0 * (Math.random() - 0.5) * pVariation;
         };
