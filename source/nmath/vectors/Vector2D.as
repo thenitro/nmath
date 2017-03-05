@@ -197,9 +197,13 @@ package nmath.vectors {
 			_y *= -1;
 		};
 
-		public function fromAngle(pAngleInRadians:Number, pLength:Number = 1):void {
-			_x = Math.cos(pAngleInRadians) * pLength;
-			_y = Math.sin(pAngleInRadians) * pLength;
+		public function fromAngle(pAngleInRadians:Number, pLength:Number = 1, pClone:Boolean = false):Vector2D {
+			var result:Vector2D = pClone ? Vector2D.ZERO : this;
+
+				result.x = Math.cos(pAngleInRadians) * pLength;
+				result.y = Math.sin(pAngleInRadians) * pLength;
+
+			return result;
 		};
 		
 		public function angle():Number {
