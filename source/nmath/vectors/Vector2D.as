@@ -39,14 +39,16 @@ package nmath.vectors {
 
             return result;
         };
-		
+
+		[Inline]
 		public static function distanceSquared(pVectorA:Vector2D, pVectorB:Vector2D):Number {
 			var dx:Number = pVectorB.x - pVectorA.x;
 			var dy:Number = pVectorB.y - pVectorA.y;
 			
 			return dx * dx + dy * dy;  
 		};
-		
+
+		[Inline]
 		public static function distance(pVectorA:Vector2D, pVectorB:Vector2D):Number {
 			return Math.sqrt(distanceSquared(pVectorA, pVectorB));
 		};
@@ -213,6 +215,10 @@ package nmath.vectors {
 		public function distanceTo(pTarget:Vector2D):Number {
 			return distance(this, pTarget);
 		};
+
+		public function distanceToSquared(pTarget:Vector2D):Number {
+			return distanceSquared(this, pTarget);
+		}
 
         public function angleTo(pTarget:Vector2D):Number {
             return angleBetween(this, pTarget);
