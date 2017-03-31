@@ -73,8 +73,9 @@ package nmath {
 		public static function lerp(pA:Number, pB:Number, pTime:Number):Number {
 			return pA + (pB - pA) * pTime;
 		};
-		
-		public static function valueInRange(pValue:Number, 
+
+		[Inline]
+		public static function valueInRange(pValue:Number,
 											pMin:Number, pMax:Number):Boolean {
 			return pValue >= pMin && pValue <= pMax;
 		};
