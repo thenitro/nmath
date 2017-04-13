@@ -31,11 +31,12 @@ package nmath {
 			
 			return pValue;
 		};
-		
+
+		[Inline]
 		public static function roundDecimal(pValue:Number, 
 											pPrecision:int):Number {
 			var decimal:Number = Math.pow(10, pPrecision);
-			
+
 			return Math.round(decimal * pValue) / decimal;
 		};
 		
