@@ -25,9 +25,10 @@ package nmath {
             return range(pVector[0], pVector[1]);
         }
 
+        [Inline]
         public static function probability(pPercents:Number):Boolean {
             return range(0, 100) < pPercents;
-        };
+        }
 
         [Inline]
         public static function variation(pValue:Number, pVariation:Number):Number {
